@@ -4,16 +4,26 @@
 <title>A BASIC HTML FORM</title>
 
   <?PHP
-	
-	  $path = $_GET['filepath'];
-	  echo ($path);
+  	if (isset($_GET['Submit1'])) { 	
+	   $path = $_GET['filepath'];
+           $ret = file_put_contents('mydata.txt', $path);
+           if($ret === false) {
+             die('There was an error writing this file');
+           }
+           else {
+             echo "$ret bytes written to file";
+           }
+  }
+  else {
+    die('no post data to process')
+  }
 ?>
 </head>
 
 <body>
 <FORM NAME ="form1" METHOD ="GET" ACTION = "home_1.php">
   Enter full file path:<br>
-  <input type="text" name="filepath" value="mn">
+  <input type="text" name="filepath" value=" ">
   <br>
   <br>
   <input type="submit" name = "submit1" value="Submit">

@@ -1,13 +1,11 @@
 @echo OFF
-
+set /p ip=<mydata.txt
+set "ext=.stl"
+set "filepath=%ip%%ext%"
 cd C:\Users\ishank10\Downloads\Slic3r
+ping 127.0.0.1 -n 4 > nul
+slic3r %filepath% --print-center 40,40
+ping 127.0.0.1 -n 3 > nul
+slic3r %filepath% --load config_correct_new.ini
 
-slic3r minimug.stl --print-center 40,40
-slic3r minimug.stl --load config_correct_new.ini
-
-rem Change directory to pronsole directory
-cd C:\Users\ishank10\Downloads\Slic3r\Printrun-Win-Slic3r-03Feb2015
-
-rem Copy .gcode file from Slic3r directory to this directory
-copy C:\Users\ishank10\Downloads\Slic3r\minimug.gcode C:\Users\ishank10\Downloads\Slic3r\Printrun-Win-Slic3r-03Feb2015\minimug.gcode
 

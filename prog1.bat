@@ -7,5 +7,7 @@ ping 127.0.0.1 -n 4 > nul
 slic3r %filepath% --print-center 40,40
 ping 127.0.0.1 -n 3 > nul
 slic3r %filepath% --load config_correct_new.ini
+ping 127.0.0.1 -n 2 > nul
+@call cscript "%~dp0prog2.vbs"
 
 
